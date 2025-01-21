@@ -1,0 +1,19 @@
+name: Black
+
+on: [push, pull_request]
+
+jobs:
+  lint-server:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: "Check server"
+        uses: psf/black@stable
+        with:
+          options: "--check --verbose"
+          src: "./server"
+      - name: "Check client"
+        uses: psf/black@stable
+        with:
+          options: "--check --verbose"
+          src: "./client"
