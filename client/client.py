@@ -20,6 +20,13 @@ def main(server_ip: str, server_port: int) -> None:
     """
     # TODO: Replace with prompt to user and call to get_img_prediction
     print(f"Using server {server_ip}:{server_port}")
+    
+    while True:
+        img_path = input("Enter a path to an image: ")
+        print(f"img_path {img_path}")
+
+#       Where do I get the api_path?
+#        get_img_prediction(server_ip, server_port, api_path, img_path)
 
 
 if __name__ == "__main__":

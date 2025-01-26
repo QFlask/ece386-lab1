@@ -10,6 +10,12 @@ See [USAFA ECE 386: AI Hardware Applications - Lab 1](https://usafa-ece.github.i
 
 *Discuss...*
 
+What strategies did you use to ensure that your client and server where communicating with the same schema?
+
+In regard to preprocesing your digit images, how well do you think your server would scale to *any* picture of a digit?
+
+Does the client/server architecture make sense for this problem? Why or why not?
+
 ## Documentation
 
 *Documentation statement. Pay special attention to the LLM policy.*
