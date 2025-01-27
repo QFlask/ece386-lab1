@@ -1,5 +1,5 @@
 pillow
 fastapi
-tensorflow-cpu
+tensorflow
 numpy
 fastapi[standard]
