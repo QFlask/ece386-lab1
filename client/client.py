@@ -3,7 +3,7 @@ TODO: Insert what this program does here.
 """
 
 import sys
-
+from fastapi import FastAPI
 
 def get_img_prediction(
     server_ip: str, server_port: int, api_path: str, image_path: str
@@ -20,13 +20,13 @@ def main(server_ip: str, server_port: int) -> None:
     """
     # TODO: Replace with prompt to user and call to get_img_prediction
     print(f"Using server {server_ip}:{server_port}")
+    api_path = "/predict"
     
     while True:
         img_path = input("Enter a path to an image: ")
         print(f"img_path {img_path}")
 
-#       Where do I get the api_path?
-#        get_img_prediction(server_ip, server_port, api_path, img_path)
+        get_img_prediction(server_ip, server_port, api_path, img_path)
 
 
 if __name__ == "__main__":
@@ -36,3 +36,5 @@ if __name__ == "__main__":
         sys.exit(1)
 
     main(sys.argv[1], int(sys.argv[2]))
+
+
