@@ -6,7 +6,7 @@ digits is a FastAPI app that...
 from PIL import Image
 from io import BytesIO
 from fastapi import FastAPI
-import tensorflow
+import tensorflow as tf
 from tensorflow import keras
 import numpy as np
 
@@ -31,6 +31,7 @@ def image_to_np(image_bytes: bytes) -> np.ndarray:
 
 
 # TODO: Define predict POST function
+# def fastapi_post(predict: img) :
 @app.post("/predict") # what do i put here?
-def fastapi_post():
-    pass
+def fastapi_post() :
+    return 0
