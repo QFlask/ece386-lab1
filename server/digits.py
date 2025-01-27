@@ -32,6 +32,6 @@ def image_to_np(image_bytes: bytes) -> np.ndarray:
 
 # TODO: Define predict POST function
 # def fastapi_post(predict: img) :
-@app.post("/predict") # what do i put here?
-def fastapi_post() :
-    return 0
+@app.get("/predict") 
+def get_request() :
+    return {"TEST": "0"}
