@@ -20,4 +20,6 @@ Does the client/server architecture make sense for this problem? Why or why not?
 
 *Documentation statement. Pay special attention to the LLM policy.*
 
-
+https://fastapi.tiangolo.com/tutorial/ for how to use FastAPI.
+https://www.w3schools.com/python/ref_requests_post.asp for post request to the server
+https://www.geeksforgeeks.org/python-pil-tobytes-method/ for getting the image bytes from the image path
