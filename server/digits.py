@@ -33,7 +33,8 @@ def image_to_np(image_bytes: bytes) -> np.ndarray:
 # TODO: Define predict POST function
 # def fastapi_post(predict: img) :
 @app.post("/predict") 
-async def get_request(file: UploadFile = File(...)): #Annotated[bytes, File()]): 
-    contents = await file.read()
-    image = await image_to_np(contents)
-    return type(image) 
+async def get_request(file: Annotated[bytes, File()]):#Annotated[bytes, File()]): 
+    image = image_to_np(file)
+    image = tf.expand_dims(image, axis=0) # shape (1, 28, 28) for model
+    prediction = model.predict(image)
+    return {"response": str(prediction.argmax())} 
