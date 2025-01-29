@@ -13,28 +13,26 @@ from typing import Annotated
 
 model_path: str = "digits.keras"
 
-model = tf.keras.models.load_model(model_path) # load trained model object
+model = tf.keras.models.load_model(model_path)  # load trained model object
 
-app = FastAPI() # create FastAPI app
+app = FastAPI()  # create FastAPI app
+
 
 def image_to_np(image_bytes: bytes) -> np.ndarray:
     """Convert image to proper numpy array"""
     # First must use pillow to process bytes
     img = Image.open(BytesIO(image_bytes))
-    # TODO: convert image to grayscale and resize
-    img = ImageOps.grayscale(img)
-    img = img.resize((28,28))
+    img = ImageOps.grayscale(img)  # grayscale image
+    img = img.resize((28, 28))  # resize the image to 28x28 px
 
-    # TODO: convert image to numpy array of shape model expects
-    img = np.array(img)
+    img = np.array(img)  # convert img to numpy array
     return img
 
 
-# TODO: Define predict POST function
-# def fastapi_post(predict: img) :
-@app.post("/predict") 
-async def get_request(file: Annotated[bytes, File()]):#Annotated[bytes, File()]): 
+# accepts posts requests of bytes to /predict
+@app.post("/predict")
+async def get_request(file: Annotated[bytes, File()]):  # Annotated[bytes, File()]):
     image = image_to_np(file)
-    image = tf.expand_dims(image, axis=0) # shape (1, 28, 28) for model
-    prediction = model.predict(image)
-    return {"response": str(prediction.argmax())} 
+    image = tf.expand_dims(image, axis=0)  # shape (1, 28, 28) for model
+    prediction = model.predict(image)  # get a prediction
+    return {"prediction": str(prediction.argmax())}  # return the predicted digit

@@ -1,8 +1,11 @@
 # Digits Server
 
-*Replace this line with a one-sentence explanation of what the server does.*
+Accepts a post request of a white-on-black handwritten digit image, runs inference on the image and returns a prediction as a digit 0-9.
 
 ## Usage
 
-*Replace this line with some steps of how to setup and run the server*
-
+1. cd to the ./server directory
+2. Create a virtual environment "python3 -m venv .venv"
+3. Activate the venv "source .venv/bin/activate"
+4. Install required dependencies "pip install -r requirements.txt"
+5. run the server with "fastapi run digits.py"
