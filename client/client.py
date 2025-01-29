@@ -13,10 +13,19 @@ def get_img_prediction(
     # TODO: Replace with code to send image to server
 
     url = f"http://{server_ip}:{server_port}/{api_path}"
-    img = Image.open(image_path).tobytes() # convert image to bytes
-    prediction = requests.post(url, img) # post a request to the server
+    prediction = None
+    try:
+        files = {"file": 
+            (image_path,
+            open(image_path, "rb"),
+            'img/png')}
 
-    return prediction.text
+        prediction = requests.post(url, files=files)# post a request to the server
+        prediction = prediction.text
+    except Exception as e:
+        print(f"Error posting request: {e}")
+
+    return prediction
 
 
 def main(server_ip: str, server_port: int) -> None:
@@ -32,7 +41,8 @@ def main(server_ip: str, server_port: int) -> None:
         img_path = input("Enter a path to an image: ")
         print(f"img_path {img_path}")
 
-        get_img_prediction(server_ip, server_port, api_path, img_path)
+        prediction = get_img_prediction(server_ip, server_port, api_path, img_path)
+        print(prediction)
 
 if __name__ == "__main__":
     # Ensure user passes required arguments
