@@ -41,7 +41,7 @@ def main(server_ip: str, server_port: int) -> None:
         img_path = input("Enter a path to an image: ")
         print(f"img_path {img_path}")
 
-        prediction = get_img_prediction(server_ip, server_port, api_path, img_path)
+        prediction = get_img_prediction(server_ip, server_port, api_path, img_path) #whats calling the API
         print(prediction)
 
 if __name__ == "__main__":
