@@ -1,5 +1,5 @@
 """
-TODO: Insert what this program does here.
+Accepts an image path, sends a post request of this image to a server and waits for a response
 """
 
 import sys
@@ -11,8 +11,6 @@ def get_img_prediction(
     server_ip: str, server_port: int, api_path: str, image_path: str
 ) -> str:
     """Send image to server for prediction."""
-    # TODO: Replace with code to send image to server
-
     url = f"http://{server_ip}:{server_port}/{api_path}"
     prediction = None
     try:
@@ -31,7 +29,6 @@ def main(server_ip: str, server_port: int) -> None:
     and send it to the server for prediction.
     Then display the result to the user.
     """
-    # TODO: Replace with prompt to user and call to get_img_prediction
     print(f"Using server {server_ip}:{server_port}")
     api_path = "/predict"
 

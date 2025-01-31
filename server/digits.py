@@ -1,6 +1,6 @@
 """
-TODO: Insert what this program does here. Should start with
-digits is a FastAPI app that...
+digits is a FastAPI app that accepts an image, runs inference on the image and returns the
+prediction in JSON format
 """
 
 from PIL import Image, ImageOps
