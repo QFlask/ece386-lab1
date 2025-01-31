@@ -11,7 +11,7 @@ def get_img_prediction(
     server_ip: str, server_port: int, api_path: str, image_path: str
 ) -> str:
     """Send image to server for prediction."""
-    url = f"http://{server_ip}:{server_port}/{api_path}"
+    url = f"http://{server_ip}:{server_port}{api_path}"
     prediction = None
     try:
         files = {"file": (image_path, open(image_path, "rb"), "img/png")}

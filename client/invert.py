@@ -1,5 +1,7 @@
 from PIL import Image, ImageChops
 
+""" For those that unfortunately draw black on white digits..."""
+
 
 def invert_image(path):
     image = Image.open(path)
